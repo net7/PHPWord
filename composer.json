@@ -1,5 +1,5 @@
 {
-    "name": "net7/phpword",
+    "name": "net7/PhpWord",
     "description": "(Net7 fork for...) PHPWord - A pure PHP library for reading and writing word processing documents (OOXML, ODF, RTF, HTML, PDF)",
     "keywords": [
         "PHP", "PHPOffice", "office", "PHPWord", "word", "template", "template processor", "reader", "writer",
