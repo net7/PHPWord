@@ -17,6 +17,7 @@
 
 namespace PhpOffice\PhpWord;
 
+use Illuminate\Support\Str;
 use PhpOffice\Common\Text;
 use PhpOffice\Common\XMLWriter;
 use PhpOffice\PhpWord\Escaper\RegExp;
@@ -25,6 +26,7 @@ use PhpOffice\PhpWord\Exception\CopyFileException;
 use PhpOffice\PhpWord\Exception\CreateTemporaryFileException;
 use PhpOffice\PhpWord\Exception\Exception;
 use PhpOffice\PhpWord\Shared\ZipArchive;
+
 
 class TemplateProcessor
 {
@@ -409,13 +411,13 @@ class TemplateProcessor
             $width = $actualWidth . 'px';
             $height = $actualHeight . 'px';
         } elseif ($width === '') { // defined width is empty
-            $heightFloat = (float) $height;
+            $heightFloat = (float)$height;
             $widthFloat = $heightFloat * $imageRatio;
             $matches = array();
             preg_match("/\d([a-z%]+)$/", $height, $matches);
             $width = $widthFloat . $matches[1];
         } elseif ($height === '') { // defined height is empty
-            $widthFloat = (float) $width;
+            $widthFloat = (float)$width;
             $heightFloat = $widthFloat / $imageRatio;
             $matches = array();
             preg_match("/\d([a-z%]+)$/", $width, $matches);
@@ -428,8 +430,8 @@ class TemplateProcessor
             // try to fix only if dimensions are same
             if ($widthMatches[1] == $heightMatches[1]) {
                 $dimention = $widthMatches[1];
-                $widthFloat = (float) $width;
-                $heightFloat = (float) $height;
+                $widthFloat = (float)$width;
+                $heightFloat = (float)$height;
                 $definedRatio = $widthFloat / $heightFloat;
 
                 if ($imageRatio > $definedRatio) { // image wider than defined box
@@ -480,9 +482,9 @@ class TemplateProcessor
         }
 
         $imageAttrs = array(
-            'src'    => $imgPath,
-            'mime'   => image_type_to_mime_type($imageType),
-            'width'  => $width,
+            'src' => $imgPath,
+            'mime' => image_type_to_mime_type($imageType),
+            'width' => $width,
             'height' => $height,
         );
 
@@ -498,9 +500,9 @@ class TemplateProcessor
         $newRelationsTypeTpl = '<Override PartName="/{RELS}" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>';
         $extTransform = array(
             'image/jpeg' => 'jpeg',
-            'image/png'  => 'png',
-            'image/bmp'  => 'bmp',
-            'image/gif'  => 'gif',
+            'image/png' => 'png',
+            'image/bmp' => 'bmp',
+            'image/gif' => 'gif',
         );
 
         // get image embed name
@@ -564,8 +566,8 @@ class TemplateProcessor
 
         // collect document parts
         $searchParts = array(
-                            $this->getMainPartName() => &$this->tempDocumentMainPart,
-                            );
+            $this->getMainPartName() => &$this->tempDocumentMainPart,
+        );
         foreach (array_keys($this->tempDocumentHeaders) as $headerIndex) {
             $searchParts[$this->getHeaderName($headerIndex)] = &$this->tempDocumentHeaders[$headerIndex];
         }
@@ -612,6 +614,84 @@ class TemplateProcessor
                 }
             }
         }
+    }
+
+    /**
+     * @param mixed $search
+     * @param mixed $replace Path to image, or array("path" => xx, "width" => yy, "height" => zz)
+     * @param int $limit
+     *
+     * @return string
+     */
+    public function setImageValueGettingXml($search, $replace, $blockXml, $limit = self::MAXIMUM_REPLACEMENTS_DEFAULT)
+    {
+        // prepare $search_replace
+        if (!is_array($search)) {
+            $search = array($search);
+        }
+
+        $replacesList = array();
+        if (!is_array($replace) || isset($replace['path'])) {
+            $replacesList[] = $replace;
+        } else {
+            $replacesList = array_values($replace);
+        }
+
+        $searchReplace = array();
+        foreach ($search as $searchIdx => $searchString) {
+            $searchReplace[str_replace(["$", "{", "}"], "", $searchString)] = isset($replacesList[$searchIdx]) ? $replacesList[$searchIdx] : $replacesList[0];
+            // $searchReplace[$searchString] = isset($replacesList[$searchIdx]) ? $replacesList[$searchIdx] : $replacesList[0];
+        }
+
+        // collect document parts
+        $searchParts = array($this->getMainPartName() => $this->tempDocumentMainPart);
+
+
+        // define templates
+        // result can be verified via "Open XML SDK 2.5 Productivity Tool" (http://www.microsoft.com/en-us/download/details.aspx?id=30425)
+        $imgTpl = '<w:pict><v:shape type="#_x0000_t75" style="width:{WIDTH};height:{HEIGHT}"><v:imagedata r:id="{RID}" o:title=""/></v:shape></w:pict>';
+        // $xmls_to_return = '';
+        foreach ($searchParts as $partFileName => $partContent) {
+            $partVariables = $this->getVariablesForPart($blockXml);
+
+            foreach ($searchReplace as $searchString => $replaceImage) {
+
+                $varsToReplace = array_filter($partVariables, function ($partVar) use ($searchString) {
+                    return ($partVar == $searchString) || preg_match('/^' . preg_quote($searchString) . ':/', $partVar);
+                });
+
+                foreach ($varsToReplace as $varNameWithArgs) {
+                    $varInlineArgs = $this->getImageArgs($varNameWithArgs);
+                    $preparedImageAttrs = $this->prepareImageAttrs($replaceImage, $varInlineArgs);
+                    $imgPath = $preparedImageAttrs['src'];
+
+                    // get image index
+                    $imgIndex = $this->getNextRelationsIndex($partFileName);
+                    $rid = 'rId' . $imgIndex;
+
+                    // replace preparations
+                    $this->addImageToRelations($partFileName, $rid, $imgPath, $preparedImageAttrs['mime']);
+                    $xmlImage = str_replace(array('{RID}', '{WIDTH}', '{HEIGHT}'), array($rid, $preparedImageAttrs['width'], $preparedImageAttrs['height']), $imgTpl);
+                    // $xmls_to_return .= $xmlImage;
+
+                    // replace variable
+                    $varNameWithArgsFixed = static::ensureMacroCompleted($varNameWithArgs);
+                    $matches = array();
+                    if (preg_match('/(<[^<]+>)([^<]*)(' . preg_quote($varNameWithArgsFixed) . ')([^>]*)(<[^>]+>)/Uu', $partContent, $matches)) {
+                        $wholeTag = $matches[0];
+                        array_shift($matches);
+                        list($openTag, $prefix, , $postfix, $closeTag) = $matches;
+                        $replaceXml = $openTag . $prefix . $closeTag . $xmlImage . $openTag . $postfix . $closeTag;
+                        // replace on each iteration, because in one tag we can have 2+ inline variables => before proceed next variable we need to change $partContent
+                        //  $this->setValueForPart($wholeTag, $replaceXml, $partContent, $limit);
+
+
+                        $blockXml = $this->setValueForPart($wholeTag, $replaceXml, $blockXml, $limit);
+                    }
+                }
+            }
+        }
+        return $blockXml;
     }
 
     /**
@@ -1079,7 +1159,7 @@ class TemplateProcessor
      * @param int $count
      * @param string $xmlBlock
      *
-     * @return string
+     * @return mixed
      */
     protected function indexClonedVariables($count, $xmlBlock)
     {
@@ -1090,6 +1170,17 @@ class TemplateProcessor
 
         return $results;
     }
+
+    /**
+     * @param $placeholder_string
+     *
+     * @return bool
+     */
+    protected function isImagePlaceholder($placeholder_string)
+    {
+        return Str::startsWith($placeholder_string, 'img_');
+    }
+
 
     /**
      * Raplaces variables with values from array, array keys are the variable names
@@ -1105,7 +1196,29 @@ class TemplateProcessor
         foreach ($variableReplacements as $replacementArray) {
             $localXmlBlock = $xmlBlock;
             foreach ($replacementArray as $search => $replacement) {
-                $localXmlBlock = $this->setValueForPart(self::ensureMacroCompleted($search), $replacement, $localXmlBlock, self::MAXIMUM_REPLACEMENTS_DEFAULT);
+                if ($this->isImagePlaceholder($search)) {
+
+                    if (!$replacement) {
+                        // $replacement = storage_path('app/puntino.jpg');
+                        $replacement = "";
+
+                        $partVariables = $this->getVariablesForPart($localXmlBlock);
+
+                        $varsToReplace = array_filter($partVariables, function ($partVar) use ($search) {
+                            return ($partVar == $search) || preg_match('/^' . preg_quote($search) . ':/', $partVar);
+                        });
+                        if (is_array($varsToReplace) && isset($varsToReplace[0])) {
+                            $search = $varsToReplace[0];
+                        }
+
+                        $localXmlBlock = $this->setValueForPart(self::ensureMacroCompleted($search), $replacement, $localXmlBlock, self::MAXIMUM_REPLACEMENTS_DEFAULT);
+                    } else {
+
+                        $localXmlBlock = $this->setImageValueGettingXml(self::ensureMacroCompleted($search), $replacement, $localXmlBlock, self::MAXIMUM_REPLACEMENTS_DEFAULT);
+                    }
+                } else {
+                    $localXmlBlock = $this->setValueForPart(self::ensureMacroCompleted($search), $replacement, $localXmlBlock, self::MAXIMUM_REPLACEMENTS_DEFAULT);
+                }
             }
             $results[] = $localXmlBlock;
         }
@@ -1182,8 +1295,8 @@ class TemplateProcessor
     /**
      * Find the start position of the nearest XML block start before $offset
      *
-     * @param int $offset    Search position
-     * @param string  $blockType XML Block tag
+     * @param int $offset Search position
+     * @param string $blockType XML Block tag
      * @return int -1 if block start not found
      */
     protected function findXmlBlockStart($offset, $blockType)
@@ -1203,8 +1316,8 @@ class TemplateProcessor
     /**
      * Find the nearest block end position after $offset
      *
-     * @param int $offset    Search position
-     * @param string  $blockType XML Block tag
+     * @param int $offset Search position
+     * @param string $blockType XML Block tag
      * @return int -1 if block end not found
      */
     protected function findXmlBlockEnd($offset, $blockType)
