@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
-use PhpOffice\PhpWord\ComplexType\FootnoteProperties;
-use PhpOffice\PhpWord\Style\Section as SectionStyle;
+use Net7\PhpWord\ComplexType\FootnoteProperties;
+use Net7\PhpWord\Style\Section as SectionStyle;
 
 class Section extends AbstractContainer
 {
@@ -30,7 +30,7 @@ class Section extends AbstractContainer
     /**
      * Section style
      *
-     * @var \PhpOffice\PhpWord\Style\Section
+     * @var \Net7\PhpWord\Style\Section
      */
     private $style;
 
@@ -59,7 +59,7 @@ class Section extends AbstractContainer
      * Create new instance
      *
      * @param int $sectionCount
-     * @param null|array|\PhpOffice\PhpWord\Style $style
+     * @param null|array|\Net7\PhpWord\Style $style
      */
     public function __construct($sectionCount, $style = null)
     {
@@ -86,7 +86,7 @@ class Section extends AbstractContainer
     /**
      * Get section style
      *
-     * @return \PhpOffice\PhpWord\Style\Section
+     * @return \Net7\PhpWord\Style\Section
      */
     public function getStyle()
     {
@@ -206,7 +206,7 @@ class Section extends AbstractContainer
 
         if (in_array($type, array(Header::AUTO, Header::FIRST, Header::EVEN))) {
             $index = count($collection);
-            /** @var \PhpOffice\PhpWord\Element\AbstractContainer $container Type hint */
+            /** @var \Net7\PhpWord\Element\AbstractContainer $container Type hint */
             $container = new $containerClass($this->sectionId, ++$index, $type);
             $container->setPhpWord($this->phpWord);
 
@@ -236,7 +236,7 @@ class Section extends AbstractContainer
      *
      * @deprecated 0.12.0
      *
-     * @return \PhpOffice\PhpWord\Style\Section
+     * @return \Net7\PhpWord\Style\Section
      *
      * @codeCoverageIgnore
      */

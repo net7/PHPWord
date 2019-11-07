@@ -15,13 +15,13 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord;
+namespace Net7\PhpWord;
 
-use PhpOffice\PhpWord\Style\AbstractStyle;
-use PhpOffice\PhpWord\Style\Font;
-use PhpOffice\PhpWord\Style\Numbering;
-use PhpOffice\PhpWord\Style\Paragraph;
-use PhpOffice\PhpWord\Style\Table;
+use Net7\PhpWord\Style\AbstractStyle;
+use Net7\PhpWord\Style\Font;
+use Net7\PhpWord\Style\Numbering;
+use Net7\PhpWord\Style\Paragraph;
+use Net7\PhpWord\Style\Table;
 
 /**
  * Style collection
@@ -39,8 +39,8 @@ class Style
      * Add paragraph style
      *
      * @param string $styleName
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $styles
-     * @return \PhpOffice\PhpWord\Style\Paragraph
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $styles
+     * @return \Net7\PhpWord\Style\Paragraph
      */
     public static function addParagraphStyle($styleName, $styles)
     {
@@ -51,9 +51,9 @@ class Style
      * Add font style
      *
      * @param string $styleName
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $fontStyle
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $paragraphStyle
-     * @return \PhpOffice\PhpWord\Style\Font
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $fontStyle
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $paragraphStyle
+     * @return \Net7\PhpWord\Style\Font
      */
     public static function addFontStyle($styleName, $fontStyle, $paragraphStyle = null)
     {
@@ -64,8 +64,8 @@ class Style
      * Add link style
      *
      * @param string $styleName
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $styles
-     * @return \PhpOffice\PhpWord\Style\Font
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $styles
+     * @return \Net7\PhpWord\Style\Font
      */
     public static function addLinkStyle($styleName, $styles)
     {
@@ -76,8 +76,8 @@ class Style
      * Add numbering style
      *
      * @param string $styleName
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $styleValues
-     * @return \PhpOffice\PhpWord\Style\Numbering
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $styleValues
+     * @return \Net7\PhpWord\Style\Numbering
      * @since 0.10.0
      */
     public static function addNumberingStyle($styleName, $styleValues)
@@ -89,9 +89,9 @@ class Style
      * Add title style
      *
      * @param int|null $depth Provide null to set title font
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $fontStyle
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $paragraphStyle
-     * @return \PhpOffice\PhpWord\Style\Font
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $fontStyle
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $paragraphStyle
+     * @return \Net7\PhpWord\Style\Font
      */
     public static function addTitleStyle($depth, $fontStyle, $paragraphStyle = null)
     {
@@ -110,7 +110,7 @@ class Style
      * @param string $styleName
      * @param array $styleTable
      * @param array|null $styleFirstRow
-     * @return \PhpOffice\PhpWord\Style\Table
+     * @return \Net7\PhpWord\Style\Table
      */
     public static function addTableStyle($styleName, $styleTable, $styleFirstRow = null)
     {
@@ -141,8 +141,8 @@ class Style
     /**
      * Set default paragraph style
      *
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $styles Paragraph style definition
-     * @return \PhpOffice\PhpWord\Style\Paragraph
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $styles Paragraph style definition
+     * @return \Net7\PhpWord\Style\Paragraph
      */
     public static function setDefaultParagraphStyle($styles)
     {
@@ -152,7 +152,7 @@ class Style
     /**
      * Get all styles
      *
-     * @return \PhpOffice\PhpWord\Style\AbstractStyle[]
+     * @return \Net7\PhpWord\Style\AbstractStyle[]
      */
     public static function getStyles()
     {
@@ -163,7 +163,7 @@ class Style
      * Get style by name
      *
      * @param string $styleName
-     * @return \PhpOffice\PhpWord\Style\AbstractStyle Paragraph|Font|Table|Numbering
+     * @return \Net7\PhpWord\Style\AbstractStyle Paragraph|Font|Table|Numbering
      */
     public static function getStyle($styleName)
     {
@@ -180,9 +180,9 @@ class Style
      * The $styleValues could be an array or object
      *
      * @param string $name
-     * @param \PhpOffice\PhpWord\Style\AbstractStyle $style
-     * @param array|\PhpOffice\PhpWord\Style\AbstractStyle $value
-     * @return \PhpOffice\PhpWord\Style\AbstractStyle
+     * @param \Net7\PhpWord\Style\AbstractStyle $style
+     * @param array|\Net7\PhpWord\Style\AbstractStyle $value
+     * @return \Net7\PhpWord\Style\AbstractStyle
      */
     private static function setStyleValues($name, $style, $value = null)
     {

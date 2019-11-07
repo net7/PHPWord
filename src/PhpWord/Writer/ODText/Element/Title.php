@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Element;
+namespace Net7\PhpWord\Writer\ODText\Element;
 
 /**
  * Title element writer
@@ -31,7 +31,7 @@ class Title extends AbstractElement
     {
         $xmlWriter = $this->getXmlWriter();
         $element = $this->getElement();
-        if (!$element instanceof \PhpOffice\PhpWord\Element\Title) {
+        if (!$element instanceof \Net7\PhpWord\Element\Title) {
             return;
         }
 
@@ -40,7 +40,7 @@ class Title extends AbstractElement
         $text = $element->getText();
         if (is_string($text)) {
             $this->writeText($text);
-        } elseif ($text instanceof \PhpOffice\PhpWord\Element\AbstractContainer) {
+        } elseif ($text instanceof \Net7\PhpWord\Element\AbstractContainer) {
             $containerWriter = new Container($xmlWriter, $text);
             $containerWriter->write();
         }

@@ -14,9 +14,9 @@
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
-namespace PhpOffice\PhpWord\Shared;
+namespace Net7\PhpWord\Shared;
 
-use PhpOffice\PhpWord\Exception\Exception;
+use Net7\PhpWord\Exception\Exception;
 
 defined('IDENTIFIER_OLE') ||
 define('IDENTIFIER_OLE', pack('CCCCCCCC', 0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1));

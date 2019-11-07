@@ -15,9 +15,9 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Style;
+namespace Net7\PhpWord\Writer\Word2007\Style;
 
-use PhpOffice\PhpWord\Style\Section as SectionStyle;
+use Net7\PhpWord\Style\Section as SectionStyle;
 
 /**
  * Section style writer

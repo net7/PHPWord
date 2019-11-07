@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
 /**
  * Field element
@@ -115,7 +115,7 @@ class Field extends AbstractElement
     /**
      * Font style
      *
-     * @var \PhpOffice\PhpWord\Style\Font
+     * @var \Net7\PhpWord\Style\Font
      */
     protected $fontStyle;
 

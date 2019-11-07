@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\HTML\Element;
+namespace Net7\PhpWord\Writer\HTML\Element;
 
 /**
  * Table element HTML writer
@@ -31,7 +31,7 @@ class Table extends AbstractElement
      */
     public function write()
     {
-        if (!$this->element instanceof \PhpOffice\PhpWord\Element\Table) {
+        if (!$this->element instanceof \Net7\PhpWord\Element\Table) {
             return '';
         }
 
@@ -42,7 +42,7 @@ class Table extends AbstractElement
             $content .= '<table' . self::getTableStyle($this->element->getStyle()) . '>' . PHP_EOL;
 
             for ($i = 0; $i < $rowCount; $i++) {
-                /** @var $row \PhpOffice\PhpWord\Element\Row Type hint */
+                /** @var $row \Net7\PhpWord\Element\Row Type hint */
                 $rowStyle = $rows[$i]->getStyle();
                 // $height = $row->getHeight();
                 $tblHeader = $rowStyle->isTblHeader();
@@ -117,7 +117,7 @@ class Table extends AbstractElement
     /**
      * Translates Table style in CSS equivalent
      *
-     * @param string|\PhpOffice\PhpWord\Style\Table|null $tableStyle
+     * @param string|\Net7\PhpWord\Style\Table|null $tableStyle
      * @return string
      */
     private function getTableStyle($tableStyle = null)
@@ -129,9 +129,9 @@ class Table extends AbstractElement
             $style = ' class="' . $tableStyle;
         } else {
             $style = ' style="';
-            if ($tableStyle->getLayout() == \PhpOffice\PhpWord\Style\Table::LAYOUT_FIXED) {
+            if ($tableStyle->getLayout() == \Net7\PhpWord\Style\Table::LAYOUT_FIXED) {
                 $style .= 'table-layout: fixed;';
-            } elseif ($tableStyle->getLayout() == \PhpOffice\PhpWord\Style\Table::LAYOUT_AUTO) {
+            } elseif ($tableStyle->getLayout() == \Net7\PhpWord\Style\Table::LAYOUT_AUTO) {
                 $style .= 'table-layout: auto;';
             }
         }

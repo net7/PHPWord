@@ -15,22 +15,22 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Part;
+namespace Net7\PhpWord\Writer\ODText\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\AbstractContainer;
-use PhpOffice\PhpWord\Element\Image;
-use PhpOffice\PhpWord\Element\Table;
-use PhpOffice\PhpWord\Element\Text;
-use PhpOffice\PhpWord\Element\TextRun;
-use PhpOffice\PhpWord\Element\TrackChange;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Style;
-use PhpOffice\PhpWord\Style\Font;
-use PhpOffice\PhpWord\Style\Paragraph;
-use PhpOffice\PhpWord\Style\Table as TableStyle;
-use PhpOffice\PhpWord\Writer\ODText\Element\Container;
-use PhpOffice\PhpWord\Writer\ODText\Style\Paragraph as ParagraphStyleWriter;
+use Net7\PhpWord\Element\AbstractContainer;
+use Net7\PhpWord\Element\Image;
+use Net7\PhpWord\Element\Table;
+use Net7\PhpWord\Element\Text;
+use Net7\PhpWord\Element\TextRun;
+use Net7\PhpWord\Element\TrackChange;
+use Net7\PhpWord\PhpWord;
+use Net7\PhpWord\Style;
+use Net7\PhpWord\Style\Font;
+use Net7\PhpWord\Style\Paragraph;
+use Net7\PhpWord\Style\Table as TableStyle;
+use Net7\PhpWord\Writer\ODText\Element\Container;
+use Net7\PhpWord\Writer\ODText\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * ODText content part writer: content.xml
@@ -156,7 +156,7 @@ class Content extends AbstractPart
         foreach ($this->autoStyles as $element => $styles) {
             $writerClass = 'PhpOffice\\PhpWord\\Writer\\ODText\\Style\\' . $element;
             foreach ($styles as $style) {
-                /** @var \PhpOffice\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
+                /** @var \Net7\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
                 $styleWriter = new $writerClass($xmlWriter, $style);
                 $styleWriter->write();
             }
@@ -179,7 +179,7 @@ class Content extends AbstractPart
                 if ($style->isAuto() === true) {
                     $styleClass = str_replace('\\Style\\', '\\Writer\\ODText\\Style\\', get_class($style));
                     if (class_exists($styleClass)) {
-                        /** @var \PhpOffice\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
+                        /** @var \Net7\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
                         $styleWriter = new $styleClass($xmlWriter, $style);
                         $styleWriter->write();
                     }
@@ -201,7 +201,7 @@ class Content extends AbstractPart
     /**
      * Get automatic styles.
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Net7\PhpWord\PhpWord $phpWord
      */
     private function getAutoStyles(PhpWord $phpWord)
     {
@@ -221,7 +221,7 @@ class Content extends AbstractPart
      *
      * Table style can be null or string of the style name
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $container
+     * @param \Net7\PhpWord\Element\AbstractContainer $container
      * @param int $paragraphStyleCount
      * @param int $fontStyleCount
      * @todo Simplify the logic
@@ -239,7 +239,7 @@ class Content extends AbstractPart
                 $style->setStyleName('fr' . $element->getMediaIndex());
                 $this->autoStyles['Image'][] = $style;
             } elseif ($element instanceof Table) {
-                /** @var \PhpOffice\PhpWord\Style\Table $style */
+                /** @var \Net7\PhpWord\Style\Table $style */
                 $style = $element->getStyle();
                 if ($style === null) {
                     $style = new TableStyle();
@@ -256,7 +256,7 @@ class Content extends AbstractPart
     /**
      * Get style of individual element
      *
-     * @param \PhpOffice\PhpWord\Element\Text $element
+     * @param \Net7\PhpWord\Element\Text $element
      * @param int $paragraphStyleCount
      * @param int $fontStyleCount
      */
@@ -285,7 +285,7 @@ class Content extends AbstractPart
      * Finds all tracked changes
      *
      * @param AbstractContainer $container
-     * @param \PhpOffice\PhpWord\Element\AbstractElement[] $trackedChanges
+     * @param \Net7\PhpWord\Element\AbstractElement[] $trackedChanges
      */
     private function collectTrackedChanges(AbstractContainer $container, &$trackedChanges = array())
     {

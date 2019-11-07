@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\Section;
-use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
-use PhpOffice\PhpWord\Writer\Word2007\Style\Section as SectionStyleWriter;
+use Net7\PhpWord\Element\Section;
+use Net7\PhpWord\Writer\Word2007\Element\Container;
+use Net7\PhpWord\Writer\Word2007\Style\Section as SectionStyleWriter;
 
 /**
  * Word2007 document part writer: word/document.xml
@@ -81,7 +81,7 @@ class Document extends AbstractPart
      * Write begin section.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\Section $section
+     * @param \Net7\PhpWord\Element\Section $section
      */
     private function writeSection(XMLWriter $xmlWriter, Section $section)
     {
@@ -96,7 +96,7 @@ class Document extends AbstractPart
      * Write end section.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\Section $section
+     * @param \Net7\PhpWord\Element\Section $section
      */
     private function writeSectionSettings(XMLWriter $xmlWriter, Section $section)
     {

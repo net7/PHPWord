@@ -15,19 +15,19 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\RTF\Element;
+namespace Net7\PhpWord\Writer\RTF\Element;
 
 use PhpOffice\Common\Text as CommonText;
-use PhpOffice\PhpWord\Element\AbstractElement as Element;
-use PhpOffice\PhpWord\Escaper\Rtf;
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\Style;
-use PhpOffice\PhpWord\Style\Font as FontStyle;
-use PhpOffice\PhpWord\Style\Paragraph as ParagraphStyle;
-use PhpOffice\PhpWord\Writer\AbstractWriter;
-use PhpOffice\PhpWord\Writer\HTML\Element\AbstractElement as HTMLAbstractElement;
-use PhpOffice\PhpWord\Writer\RTF\Style\Font as FontStyleWriter;
-use PhpOffice\PhpWord\Writer\RTF\Style\Paragraph as ParagraphStyleWriter;
+use Net7\PhpWord\Element\AbstractElement as Element;
+use Net7\PhpWord\Escaper\Rtf;
+use Net7\PhpWord\Settings;
+use Net7\PhpWord\Style;
+use Net7\PhpWord\Style\Font as FontStyle;
+use Net7\PhpWord\Style\Paragraph as ParagraphStyle;
+use Net7\PhpWord\Writer\AbstractWriter;
+use Net7\PhpWord\Writer\HTML\Element\AbstractElement as HTMLAbstractElement;
+use Net7\PhpWord\Writer\RTF\Style\Font as FontStyleWriter;
+use Net7\PhpWord\Writer\RTF\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * Abstract RTF element writer
@@ -39,14 +39,14 @@ abstract class AbstractElement extends HTMLAbstractElement
     /**
      * Font style
      *
-     * @var \PhpOffice\PhpWord\Style\Font
+     * @var \Net7\PhpWord\Style\Font
      */
     private $fontStyle;
 
     /**
      * Paragraph style
      *
-     * @var \PhpOffice\PhpWord\Style\Paragraph
+     * @var \Net7\PhpWord\Style\Paragraph
      */
     private $paragraphStyle;
 
@@ -62,10 +62,10 @@ abstract class AbstractElement extends HTMLAbstractElement
      */
     protected function getStyles()
     {
-        /** @var \PhpOffice\PhpWord\Writer\RTF $parentWriter Type hint */
+        /** @var \Net7\PhpWord\Writer\RTF $parentWriter Type hint */
         $parentWriter = $this->parentWriter;
 
-        /** @var \PhpOffice\PhpWord\Element\Text $element Type hint */
+        /** @var \Net7\PhpWord\Element\Text $element Type hint */
         $element = $this->element;
 
         // Font style
@@ -154,7 +154,7 @@ abstract class AbstractElement extends HTMLAbstractElement
             return '';
         }
 
-        /** @var \PhpOffice\PhpWord\Writer\RTF $parentWriter Type hint */
+        /** @var \Net7\PhpWord\Writer\RTF $parentWriter Type hint */
         $parentWriter = $this->parentWriter;
 
         // Create style writer and set color/name index

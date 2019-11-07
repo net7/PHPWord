@@ -15,11 +15,11 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer;
+namespace Net7\PhpWord\Writer;
 
-use PhpOffice\PhpWord\Exception\Exception;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Settings;
+use Net7\PhpWord\Exception\Exception;
+use Net7\PhpWord\PhpWord;
+use Net7\PhpWord\Settings;
 
 /**
  * PDF Writer
@@ -31,16 +31,16 @@ class PDF
     /**
      * The wrapper for the requested PDF rendering engine
      *
-     * @var \PhpOffice\PhpWord\Writer\PDF\AbstractRenderer
+     * @var \Net7\PhpWord\Writer\PDF\AbstractRenderer
      */
     private $renderer = null;
 
     /**
      * Instantiate a new renderer of the configured type within this container class
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Net7\PhpWord\PhpWord $phpWord
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Net7\PhpWord\Exception\Exception
      */
     public function __construct(PhpWord $phpWord)
     {

@@ -15,11 +15,11 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Reader\Word2007;
+namespace Net7\PhpWord\Reader\Word2007;
 
 use PhpOffice\Common\XMLReader;
-use PhpOffice\PhpWord\Element\Section;
-use PhpOffice\PhpWord\PhpWord;
+use Net7\PhpWord\Element\Section;
+use Net7\PhpWord\PhpWord;
 
 /**
  * Document reader
@@ -32,14 +32,14 @@ class Document extends AbstractPart
     /**
      * PhpWord object
      *
-     * @var \PhpOffice\PhpWord\PhpWord
+     * @var \Net7\PhpWord\PhpWord
      */
     private $phpWord;
 
     /**
      * Read document.xml.
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Net7\PhpWord\PhpWord $phpWord
      */
     public function read(PhpWord $phpWord)
     {
@@ -64,7 +64,7 @@ class Document extends AbstractPart
      * Read header footer.
      *
      * @param array $settings
-     * @param \PhpOffice\PhpWord\Element\Section &$section
+     * @param \Net7\PhpWord\Element\Section &$section
      */
     private function readHeaderFooter($settings, Section &$section)
     {
@@ -143,7 +143,7 @@ class Document extends AbstractPart
      *
      * @param \PhpOffice\Common\XMLReader $xmlReader
      * @param \DOMElement $node
-     * @param \PhpOffice\PhpWord\Element\Section &$section
+     * @param \Net7\PhpWord\Element\Section &$section
      *
      * @todo <w:lastRenderedPageBreak>
      */
@@ -172,7 +172,7 @@ class Document extends AbstractPart
      *
      * @param \PhpOffice\Common\XMLReader $xmlReader
      * @param \DOMElement $node
-     * @param \PhpOffice\PhpWord\Element\Section &$section
+     * @param \Net7\PhpWord\Element\Section &$section
      */
     private function readWSectPrNode(XMLReader $xmlReader, \DOMElement $node, Section &$section)
     {

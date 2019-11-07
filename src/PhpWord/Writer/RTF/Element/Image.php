@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\RTF\Element;
+namespace Net7\PhpWord\Writer\RTF\Element;
 
-use PhpOffice\PhpWord\Element\Image as ImageElement;
-use PhpOffice\PhpWord\Shared\Converter;
+use Net7\PhpWord\Element\Image as ImageElement;
+use Net7\PhpWord\Shared\Converter;
 
 /**
  * Image element RTF writer

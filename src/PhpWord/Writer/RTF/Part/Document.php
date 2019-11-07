@@ -15,11 +15,11 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\RTF\Part;
+namespace Net7\PhpWord\Writer\RTF\Part;
 
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\Writer\RTF\Element\Container;
-use PhpOffice\PhpWord\Writer\RTF\Style\Section as SectionStyleWriter;
+use Net7\PhpWord\Settings;
+use Net7\PhpWord\Writer\RTF\Element\Container;
+use Net7\PhpWord\Writer\RTF\Style\Section as SectionStyleWriter;
 
 /**
  * RTF document part writer

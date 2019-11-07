@@ -15,11 +15,11 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Reader\ODText;
+namespace Net7\PhpWord\Reader\ODText;
 
 use PhpOffice\Common\XMLReader;
-use PhpOffice\PhpWord\Element\TrackChange;
-use PhpOffice\PhpWord\PhpWord;
+use Net7\PhpWord\Element\TrackChange;
+use Net7\PhpWord\PhpWord;
 
 /**
  * Content reader
@@ -31,7 +31,7 @@ class Content extends AbstractPart
     /**
      * Read content.xml.
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Net7\PhpWord\PhpWord $phpWord
      */
     public function read(PhpWord $phpWord)
     {

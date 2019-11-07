@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Style;
+namespace Net7\PhpWord\Writer\Word2007\Style;
 
 /**
  * Row style writer
@@ -35,7 +35,7 @@ class Row extends AbstractStyle
     public function write()
     {
         $style = $this->getStyle();
-        if (!$style instanceof \PhpOffice\PhpWord\Style\Row) {
+        if (!$style instanceof \Net7\PhpWord\Style\Row) {
             return;
         }
 

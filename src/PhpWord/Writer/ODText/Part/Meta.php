@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Part;
+namespace Net7\PhpWord\Writer\ODText\Part;
 
 use PhpOffice\Common\XMLWriter;
 

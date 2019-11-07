@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\Footnote;
-use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
-use PhpOffice\PhpWord\Writer\Word2007\Style\Paragraph as ParagraphStyleWriter;
+use Net7\PhpWord\Element\Footnote;
+use Net7\PhpWord\Writer\Word2007\Element\Container;
+use Net7\PhpWord\Writer\Word2007\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * Word2007 footnotes part writer: word/(footnotes|endnotes).xml
@@ -58,7 +58,7 @@ class Footnotes extends AbstractPart
     /**
      * Footnotes/endnotes collection to be written
      *
-     * @var \PhpOffice\PhpWord\Collection\Footnotes|\PhpOffice\PhpWord\Collection\Endnotes
+     * @var \Net7\PhpWord\Collection\Footnotes|\Net7\PhpWord\Collection\Endnotes
      */
     protected $elements;
 
@@ -122,7 +122,7 @@ class Footnotes extends AbstractPart
     /**
      * Set element
      *
-     * @param \PhpOffice\PhpWord\Collection\Footnotes|\PhpOffice\PhpWord\Collection\Endnotes $elements
+     * @param \Net7\PhpWord\Collection\Footnotes|\Net7\PhpWord\Collection\Endnotes $elements
      * @return self
      */
     public function setElements($elements)
@@ -136,7 +136,7 @@ class Footnotes extends AbstractPart
      * Write note item.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\Footnote|\PhpOffice\PhpWord\Element\Endnote $element
+     * @param \Net7\PhpWord\Element\Footnote|\Net7\PhpWord\Element\Endnote $element
      */
     protected function writeNote(XMLWriter $xmlWriter, $element)
     {

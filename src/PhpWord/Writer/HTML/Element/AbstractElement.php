@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\HTML\Element;
+namespace Net7\PhpWord\Writer\HTML\Element;
 
-use PhpOffice\PhpWord\Element\AbstractElement as Element;
-use PhpOffice\PhpWord\Writer\AbstractWriter;
+use Net7\PhpWord\Element\AbstractElement as Element;
+use Net7\PhpWord\Writer\AbstractWriter;
 use Zend\Escaper\Escaper;
 
 /**
@@ -31,14 +31,14 @@ abstract class AbstractElement
     /**
      * Parent writer
      *
-     * @var \PhpOffice\PhpWord\Writer\AbstractWriter
+     * @var \Net7\PhpWord\Writer\AbstractWriter
      */
     protected $parentWriter;
 
     /**
      * Element
      *
-     * @var \PhpOffice\PhpWord\Element\AbstractElement
+     * @var \Net7\PhpWord\Element\AbstractElement
      */
     protected $element;
 
@@ -50,7 +50,7 @@ abstract class AbstractElement
     protected $withoutP = false;
 
     /**
-     * @var \Zend\Escaper\Escaper|\PhpOffice\PhpWord\Escaper\AbstractEscaper
+     * @var \Zend\Escaper\Escaper|\Net7\PhpWord\Escaper\AbstractEscaper
      */
     protected $escaper;
 
@@ -62,8 +62,8 @@ abstract class AbstractElement
     /**
      * Create new instance
      *
-     * @param \PhpOffice\PhpWord\Writer\AbstractWriter $parentWriter
-     * @param \PhpOffice\PhpWord\Element\AbstractElement $element
+     * @param \Net7\PhpWord\Writer\AbstractWriter $parentWriter
+     * @param \Net7\PhpWord\Element\AbstractElement $element
      * @param bool $withoutP
      */
     public function __construct(AbstractWriter $parentWriter, Element $element, $withoutP = false)

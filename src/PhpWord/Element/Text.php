@@ -15,11 +15,11 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
 use PhpOffice\Common\Text as CommonText;
-use PhpOffice\PhpWord\Style\Font;
-use PhpOffice\PhpWord\Style\Paragraph;
+use Net7\PhpWord\Style\Font;
+use Net7\PhpWord\Style\Paragraph;
 
 /**
  * Text element
@@ -36,14 +36,14 @@ class Text extends AbstractElement
     /**
      * Text style
      *
-     * @var string|\PhpOffice\PhpWord\Style\Font
+     * @var string|\Net7\PhpWord\Style\Font
      */
     protected $fontStyle;
 
     /**
      * Paragraph style
      *
-     * @var string|\PhpOffice\PhpWord\Style\Paragraph
+     * @var string|\Net7\PhpWord\Style\Paragraph
      */
     protected $paragraphStyle;
 
@@ -64,9 +64,9 @@ class Text extends AbstractElement
     /**
      * Set Text style
      *
-     * @param string|array|\PhpOffice\PhpWord\Style\Font $style
-     * @param string|array|\PhpOffice\PhpWord\Style\Paragraph $paragraphStyle
-     * @return string|\PhpOffice\PhpWord\Style\Font
+     * @param string|array|\Net7\PhpWord\Style\Font $style
+     * @param string|array|\Net7\PhpWord\Style\Paragraph $paragraphStyle
+     * @return string|\Net7\PhpWord\Style\Font
      */
     public function setFontStyle($style = null, $paragraphStyle = null)
     {
@@ -89,7 +89,7 @@ class Text extends AbstractElement
     /**
      * Get Text style
      *
-     * @return string|\PhpOffice\PhpWord\Style\Font
+     * @return string|\Net7\PhpWord\Style\Font
      */
     public function getFontStyle()
     {
@@ -99,8 +99,8 @@ class Text extends AbstractElement
     /**
      * Set Paragraph style
      *
-     * @param string|array|\PhpOffice\PhpWord\Style\Paragraph $style
-     * @return string|\PhpOffice\PhpWord\Style\Paragraph
+     * @param string|array|\Net7\PhpWord\Style\Paragraph $style
+     * @return string|\Net7\PhpWord\Style\Paragraph
      */
     public function setParagraphStyle($style = null)
     {
@@ -121,7 +121,7 @@ class Text extends AbstractElement
     /**
      * Get Paragraph style
      *
-     * @return string|\PhpOffice\PhpWord\Style\Paragraph
+     * @return string|\Net7\PhpWord\Style\Paragraph
      */
     public function getParagraphStyle()
     {

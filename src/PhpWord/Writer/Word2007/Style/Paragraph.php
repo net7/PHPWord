@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Style;
+namespace Net7\PhpWord\Writer\Word2007\Style;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Style;
-use PhpOffice\PhpWord\Style\Paragraph as ParagraphStyle;
-use PhpOffice\PhpWord\Writer\Word2007\Element\ParagraphAlignment;
+use Net7\PhpWord\Style;
+use Net7\PhpWord\Style\Paragraph as ParagraphStyle;
+use Net7\PhpWord\Writer\Word2007\Element\ParagraphAlignment;
 
 /**
  * Paragraph style writer
@@ -147,7 +147,7 @@ class Paragraph extends AbstractStyle
      * Write tabs.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Tab[] $tabs
+     * @param \Net7\PhpWord\Style\Tab[] $tabs
      */
     private function writeTabs(XMLWriter $xmlWriter, $tabs)
     {
@@ -172,7 +172,7 @@ class Paragraph extends AbstractStyle
         $numStyle = $numbering['style'];
         $numLevel = $numbering['level'];
 
-        /** @var \PhpOffice\PhpWord\Style\Numbering $numbering */
+        /** @var \Net7\PhpWord\Style\Numbering $numbering */
         $numbering = Style::getStyle($numStyle);
         if ($numStyle !== null && $numbering !== null) {
             $xmlWriter->startElement('w:numPr');

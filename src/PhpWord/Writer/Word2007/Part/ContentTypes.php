@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
 
@@ -31,7 +31,7 @@ class ContentTypes extends AbstractPart
      */
     public function write()
     {
-        /** @var \PhpOffice\PhpWord\Writer\Word2007 $parentWriter Type hint */
+        /** @var \Net7\PhpWord\Writer\Word2007 $parentWriter Type hint */
         $parentWriter = $this->getParentWriter();
         $contentTypes = $parentWriter->getContentTypes();
 

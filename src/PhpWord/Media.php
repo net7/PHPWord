@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord;
+namespace Net7\PhpWord;
 
-use PhpOffice\PhpWord\Element\Image;
-use PhpOffice\PhpWord\Exception\Exception;
+use Net7\PhpWord\Element\Image;
+use Net7\PhpWord\Exception\Exception;
 
 /**
  * Media collection
@@ -41,9 +41,9 @@ class Media
      * @param string $container section|headerx|footerx|footnote|endnote
      * @param string $mediaType image|object|link
      * @param string $source
-     * @param \PhpOffice\PhpWord\Element\Image $image
+     * @param \Net7\PhpWord\Element\Image $image
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Net7\PhpWord\Exception\Exception
      *
      * @return int
      */
@@ -208,7 +208,7 @@ class Media
      *
      * @param  string $src
      * @param  string $type
-     * @param  \PhpOffice\PhpWord\Element\Image $image
+     * @param  \Net7\PhpWord\Element\Image $image
      *
      * @return int
      *
@@ -274,7 +274,7 @@ class Media
      *
      * @param  int $headerCount
      * @param  string $src
-     * @param  \PhpOffice\PhpWord\Element\Image $image
+     * @param  \Net7\PhpWord\Element\Image $image
      *
      * @return int
      *
@@ -322,7 +322,7 @@ class Media
      *
      * @param  int $footerCount
      * @param  string $src
-     * @param  \PhpOffice\PhpWord\Element\Image $image
+     * @param  \Net7\PhpWord\Element\Image $image
      *
      * @return int
      *

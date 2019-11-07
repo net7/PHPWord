@@ -15,9 +15,9 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\HTML\Element;
+namespace Net7\PhpWord\Writer\HTML\Element;
 
-use PhpOffice\PhpWord\Element\AbstractContainer as ContainerElement;
+use Net7\PhpWord\Element\AbstractContainer as ContainerElement;
 
 /**
  * Container element HTML writer
@@ -53,7 +53,7 @@ class Container extends AbstractElement
             $elementClass = get_class($element);
             $writerClass = str_replace('PhpOffice\\PhpWord\\Element', $this->namespace, $elementClass);
             if (class_exists($writerClass)) {
-                /** @var \PhpOffice\PhpWord\Writer\HTML\Element\AbstractElement $writer Type hint */
+                /** @var \Net7\PhpWord\Writer\HTML\Element\AbstractElement $writer Type hint */
                 $writer = new $writerClass($this->parentWriter, $element, $withoutP);
                 $content .= $writer->write();
             }

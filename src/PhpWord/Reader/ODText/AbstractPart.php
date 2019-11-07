@@ -15,9 +15,9 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Reader\ODText;
+namespace Net7\PhpWord\Reader\ODText;
 
-use PhpOffice\PhpWord\Reader\Word2007\AbstractPart as Word2007AbstractPart;
+use Net7\PhpWord\Reader\Word2007\AbstractPart as Word2007AbstractPart;
 
 /**
  * Abstract part reader

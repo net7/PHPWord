@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Shared;
+namespace Net7\PhpWord\Shared;
 
 /**
  * Common converter functions

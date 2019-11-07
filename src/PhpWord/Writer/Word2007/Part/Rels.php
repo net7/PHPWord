@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Exception\Exception;
+use Net7\PhpWord\Exception\Exception;
 
 /**
  * Word2007 main relationship writer: _rels/.rels
@@ -107,7 +107,7 @@ class Rels extends AbstractPart
      * @param string $target Relationship target
      * @param string $targetMode Relationship target mode
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Net7\PhpWord\Exception\Exception
      */
     private function writeRel(XMLWriter $xmlWriter, $relId, $type, $target, $targetMode = '')
     {

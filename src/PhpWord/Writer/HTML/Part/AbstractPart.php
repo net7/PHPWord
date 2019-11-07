@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\HTML\Part;
+namespace Net7\PhpWord\Writer\HTML\Part;
 
-use PhpOffice\PhpWord\Exception\Exception;
-use PhpOffice\PhpWord\Writer\AbstractWriter;
+use Net7\PhpWord\Exception\Exception;
+use Net7\PhpWord\Writer\AbstractWriter;
 use Zend\Escaper\Escaper;
 
 /**
@@ -27,7 +27,7 @@ use Zend\Escaper\Escaper;
 abstract class AbstractPart
 {
     /**
-     * @var \PhpOffice\PhpWord\Writer\AbstractWriter
+     * @var \Net7\PhpWord\Writer\AbstractWriter
      */
     private $parentWriter;
 
@@ -47,7 +47,7 @@ abstract class AbstractPart
     abstract public function write();
 
     /**
-     * @param \PhpOffice\PhpWord\Writer\AbstractWriter $writer
+     * @param \Net7\PhpWord\Writer\AbstractWriter $writer
      */
     public function setParentWriter(AbstractWriter $writer = null)
     {
@@ -55,9 +55,9 @@ abstract class AbstractPart
     }
 
     /**
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Net7\PhpWord\Exception\Exception
      *
-     * @return \PhpOffice\PhpWord\Writer\AbstractWriter
+     * @return \Net7\PhpWord\Writer\AbstractWriter
      */
     public function getParentWriter()
     {

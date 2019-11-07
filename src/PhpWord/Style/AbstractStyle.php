@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Style;
+namespace Net7\PhpWord\Style;
 
 use PhpOffice\Common\Text;
 
@@ -129,7 +129,7 @@ abstract class AbstractStyle
     /**
      * Return style value of child style object, e.g. `left` from `Indentation` child style of `Paragraph`
      *
-     * @param \PhpOffice\PhpWord\Style\AbstractStyle $substyleObject
+     * @param \Net7\PhpWord\Style\AbstractStyle $substyleObject
      * @param string $substyleProperty
      * @return mixed
      * @since 0.12.0
@@ -306,7 +306,7 @@ abstract class AbstractStyle
     {
         $styleClass = substr(get_class($this), 0, strrpos(get_class($this), '\\')) . '\\' . $styleName;
         if (is_array($value)) {
-            /** @var \PhpOffice\PhpWord\Style\AbstractStyle $style Type hint */
+            /** @var \Net7\PhpWord\Style\AbstractStyle $style Type hint */
             if (!$style instanceof $styleClass) {
                 $style = new $styleClass();
             }

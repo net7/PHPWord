@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Style;
-use PhpOffice\PhpWord\Style\Numbering as NumberingStyle;
-use PhpOffice\PhpWord\Style\NumberingLevel;
+use Net7\PhpWord\Style;
+use Net7\PhpWord\Style\Numbering as NumberingStyle;
+use Net7\PhpWord\Style\NumberingLevel;
 
 /**
  * Word2007 numbering part writer: word/numbering.xml
@@ -98,7 +98,7 @@ class Numbering extends AbstractPart
      * Write level.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\NumberingLevel $level
+     * @param \Net7\PhpWord\Style\NumberingLevel $level
      */
     private function writeLevel(XMLWriter $xmlWriter, NumberingLevel $level)
     {
@@ -138,7 +138,7 @@ class Numbering extends AbstractPart
      * @since 0.11.0
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\NumberingLevel $level
+     * @param \Net7\PhpWord\Style\NumberingLevel $level
      * @todo Use paragraph style writer
      */
     private function writeParagraph(XMLWriter $xmlWriter, NumberingLevel $level)
@@ -170,7 +170,7 @@ class Numbering extends AbstractPart
      * @since 0.11.0
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\NumberingLevel $level
+     * @param \Net7\PhpWord\Style\NumberingLevel $level
      * @todo Use font style writer
      */
     private function writeFont(XMLWriter $xmlWriter, NumberingLevel $level)

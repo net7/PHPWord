@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Reader;
+namespace Net7\PhpWord\Reader;
 
 use PhpOffice\Common\Drawing;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Shared\OLERead;
-use PhpOffice\PhpWord\Style;
+use Net7\PhpWord\PhpWord;
+use Net7\PhpWord\Shared\OLERead;
+use Net7\PhpWord\Style;
 
 /**
  * Reader for Word97

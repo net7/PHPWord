@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Element;
+namespace Net7\PhpWord\Writer\Word2007\Element;
 
 use PhpOffice\Common\Text as CommonText;
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\AbstractElement as Element;
-use PhpOffice\PhpWord\Settings;
+use Net7\PhpWord\Element\AbstractElement as Element;
+use Net7\PhpWord\Settings;
 
 /**
  * Abstract element writer
@@ -39,7 +39,7 @@ abstract class AbstractElement
     /**
      * Element
      *
-     * @var \PhpOffice\PhpWord\Element\AbstractElement
+     * @var \Net7\PhpWord\Element\AbstractElement
      */
     private $element;
 
@@ -59,7 +59,7 @@ abstract class AbstractElement
      * Create new instance
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\AbstractElement $element
+     * @param \Net7\PhpWord\Element\AbstractElement $element
      * @param bool $withoutP
      */
     public function __construct(XMLWriter $xmlWriter, Element $element, $withoutP = false)
@@ -82,7 +82,7 @@ abstract class AbstractElement
     /**
      * Get element
      *
-     * @return \PhpOffice\PhpWord\Element\AbstractElement
+     * @return \Net7\PhpWord\Element\AbstractElement
      */
     protected function getElement()
     {
@@ -92,7 +92,7 @@ abstract class AbstractElement
     /**
      * Start w:p DOM element.
      *
-     * @uses \PhpOffice\PhpWord\Writer\Word2007\Element\PageBreak::write()
+     * @uses \Net7\PhpWord\Writer\Word2007\Element\PageBreak::write()
      */
     protected function startElementP()
     {
@@ -190,7 +190,7 @@ abstract class AbstractElement
         $class = "PhpOffice\\PhpWord\\Writer\\Word2007\\Style\\{$styleType}";
         $styleObject = $this->element->$method();
 
-        /** @var \PhpOffice\PhpWord\Writer\Word2007\Style\AbstractStyle $styleWriter Type Hint */
+        /** @var \Net7\PhpWord\Writer\Word2007\Style\AbstractStyle $styleWriter Type Hint */
         $styleWriter = new $class($this->xmlWriter, $styleObject);
         if (method_exists($styleWriter, 'setIsInline')) {
             $styleWriter->setIsInline(true);

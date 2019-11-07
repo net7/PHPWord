@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\RTF\Element;
+namespace Net7\PhpWord\Writer\RTF\Element;
 
 /**
  * TextBreak element RTF writer
@@ -31,7 +31,7 @@ class TextBreak extends AbstractElement
      */
     public function write()
     {
-        /** @var \PhpOffice\PhpWord\Writer\RTF $parentWriter Type hint */
+        /** @var \Net7\PhpWord\Writer\RTF $parentWriter Type hint */
         $parentWriter = $this->parentWriter;
         $parentWriter->setLastParagraphStyle();
 

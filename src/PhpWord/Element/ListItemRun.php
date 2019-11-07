@@ -15,9 +15,9 @@
 * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
 */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
-use PhpOffice\PhpWord\Style\ListItem as ListItemStyle;
+use Net7\PhpWord\Style\ListItem as ListItemStyle;
 
 /**
  * List item element
@@ -32,7 +32,7 @@ class ListItemRun extends TextRun
     /**
      * ListItem Style
      *
-     * @var \PhpOffice\PhpWord\Style\ListItem
+     * @var \Net7\PhpWord\Style\ListItem
      */
     private $style;
 
@@ -66,7 +66,7 @@ class ListItemRun extends TextRun
     /**
      * Get ListItem style.
      *
-     * @return \PhpOffice\PhpWord\Style\ListItem
+     * @return \Net7\PhpWord\Style\ListItem
      */
     public function getStyle()
     {

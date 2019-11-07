@@ -15,13 +15,13 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer;
+namespace Net7\PhpWord\Writer;
 
-use PhpOffice\PhpWord\Exception\CopyFileException;
-use PhpOffice\PhpWord\Exception\Exception;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\Shared\ZipArchive;
+use Net7\PhpWord\Exception\CopyFileException;
+use Net7\PhpWord\Exception\Exception;
+use Net7\PhpWord\PhpWord;
+use Net7\PhpWord\Settings;
+use Net7\PhpWord\Shared\ZipArchive;
 
 /**
  * Abstract writer class
@@ -33,7 +33,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * PHPWord object
      *
-     * @var \PhpOffice\PhpWord\PhpWord
+     * @var \Net7\PhpWord\PhpWord
      */
     protected $phpWord = null;
 
@@ -96,8 +96,8 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Get PhpWord object
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
-     * @return \PhpOffice\PhpWord\PhpWord
+     * @throws \Net7\PhpWord\Exception\Exception
+     * @return \Net7\PhpWord\PhpWord
      */
     public function getPhpWord()
     {
@@ -110,7 +110,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Set PhpWord object
      *
-     * @param \PhpOffice\PhpWord\PhpWord
+     * @param \Net7\PhpWord\PhpWord
      * @return self
      */
     public function setPhpWord(PhpWord $phpWord = null)
@@ -151,7 +151,7 @@ abstract class AbstractWriter implements WriterInterface
      * @param bool $value
      * @param string $directory
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Net7\PhpWord\Exception\Exception
      * @return self
      */
     public function setUseDiskCaching($value = false, $directory = null)
@@ -234,7 +234,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Cleanup temporary file.
      *
-     * @throws \PhpOffice\PhpWord\Exception\CopyFileException
+     * @throws \Net7\PhpWord\Exception\CopyFileException
      */
     protected function cleanupTempFile()
     {
@@ -268,7 +268,7 @@ abstract class AbstractWriter implements WriterInterface
      *
      * @throws \Exception
      *
-     * @return \PhpOffice\PhpWord\Shared\ZipArchive
+     * @return \Net7\PhpWord\Shared\ZipArchive
      */
     protected function getZipArchive($filename)
     {
@@ -335,7 +335,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Add files to package.
      *
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
+     * @param \Net7\PhpWord\Shared\ZipArchive $zip
      * @param mixed $elements
      */
     protected function addFilesToPackage(ZipArchive $zip, $elements)
@@ -373,7 +373,7 @@ abstract class AbstractWriter implements WriterInterface
      *
      * Get the actual source from an archive image.
      *
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zipPackage
+     * @param \Net7\PhpWord\Shared\ZipArchive $zipPackage
      * @param string $source
      * @param string $target
      */

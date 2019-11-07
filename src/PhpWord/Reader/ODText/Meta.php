@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Reader\ODText;
+namespace Net7\PhpWord\Reader\ODText;
 
 use PhpOffice\Common\XMLReader;
-use PhpOffice\PhpWord\PhpWord;
+use Net7\PhpWord\PhpWord;
 
 /**
  * Meta reader
@@ -30,7 +30,7 @@ class Meta extends AbstractPart
     /**
      * Read meta.xml.
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Net7\PhpWord\PhpWord $phpWord
      * @todo Process property type
      */
     public function read(PhpWord $phpWord)

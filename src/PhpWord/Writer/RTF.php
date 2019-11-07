@@ -15,9 +15,9 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer;
+namespace Net7\PhpWord\Writer;
 
-use PhpOffice\PhpWord\PhpWord;
+use Net7\PhpWord\PhpWord;
 
 /**
  * RTF writer
@@ -36,7 +36,7 @@ class RTF extends AbstractWriter implements WriterInterface
     /**
      * Create new instance
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Net7\PhpWord\PhpWord $phpWord
      */
     public function __construct(PhpWord $phpWord = null)
     {
@@ -46,7 +46,7 @@ class RTF extends AbstractWriter implements WriterInterface
         foreach ($this->parts as $partName) {
             $partClass = get_class($this) . '\\Part\\' . $partName;
             if (class_exists($partClass)) {
-                /** @var \PhpOffice\PhpWord\Writer\RTF\Part\AbstractPart $part Type hint */
+                /** @var \Net7\PhpWord\Writer\RTF\Part\AbstractPart $part Type hint */
                 $part = new $partClass();
                 $part->setParentWriter($this);
                 $this->writerParts[strtolower($partName)] = $part;
@@ -58,7 +58,7 @@ class RTF extends AbstractWriter implements WriterInterface
      * Save content to file.
      *
      * @param string $filename
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Net7\PhpWord\Exception\Exception
      */
     public function save($filename = null)
     {

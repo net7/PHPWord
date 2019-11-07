@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Style;
+namespace Net7\PhpWord\Writer\ODText\Style;
 
 /**
  * Section style writer
@@ -29,9 +29,9 @@ class Section extends AbstractStyle
      */
     public function write()
     {
-        /** @var \PhpOffice\PhpWord\Style\Section $style Type hint */
+        /** @var \Net7\PhpWord\Style\Section $style Type hint */
         $style = $this->getStyle();
-        if (!$style instanceof \PhpOffice\PhpWord\Style\Section) {
+        if (!$style instanceof \Net7\PhpWord\Style\Section) {
             return;
         }
         $xmlWriter = $this->getXmlWriter();

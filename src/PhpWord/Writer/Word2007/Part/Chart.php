@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\Chart as ChartElement;
+use Net7\PhpWord\Element\Chart as ChartElement;
 
 /**
  * Word2007 chart part writer: word/charts/chartx.xml
@@ -31,7 +31,7 @@ class Chart extends AbstractPart
     /**
      * Chart element
      *
-     * @var \PhpOffice\PhpWord\Element\Chart
+     * @var \Net7\PhpWord\Element\Chart
      */
     private $element;
 
@@ -65,7 +65,7 @@ class Chart extends AbstractPart
     /**
      * Set chart element.
      *
-     * @param \PhpOffice\PhpWord\Element\Chart $element
+     * @param \Net7\PhpWord\Element\Chart $element
      */
     public function setElement(ChartElement $element)
     {
@@ -316,7 +316,7 @@ class Chart extends AbstractPart
         foreach ($values as $value) {
             $xmlWriter->startElement('c:pt');
             $xmlWriter->writeAttribute('idx', $index);
-            if (\PhpOffice\PhpWord\Settings::isOutputEscapingEnabled()) {
+            if (\Net7\PhpWord\Settings::isOutputEscapingEnabled()) {
                 $xmlWriter->writeElement('c:v', $value);
             } else {
                 $xmlWriter->startElement('c:v');

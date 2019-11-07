@@ -15,11 +15,11 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Style\Font;
-use PhpOffice\PhpWord\Style\TOC as TOCStyle;
+use Net7\PhpWord\PhpWord;
+use Net7\PhpWord\Style\Font;
+use Net7\PhpWord\Style\TOC as TOCStyle;
 
 /**
  * Table of contents
@@ -29,14 +29,14 @@ class TOC extends AbstractElement
     /**
      * TOC style
      *
-     * @var \PhpOffice\PhpWord\Style\TOC
+     * @var \Net7\PhpWord\Style\TOC
      */
     private $TOCStyle;
 
     /**
      * Font style
      *
-     * @var \PhpOffice\PhpWord\Style\Font|string
+     * @var \Net7\PhpWord\Style\Font|string
      */
     private $fontStyle;
 
@@ -94,7 +94,7 @@ class TOC extends AbstractElement
 
         $titles = $this->phpWord->getTitles()->getItems();
         foreach ($titles as $i => $title) {
-            /** @var \PhpOffice\PhpWord\Element\Title $title Type hint */
+            /** @var \Net7\PhpWord\Element\Title $title Type hint */
             $depth = $title->getDepth();
             if ($this->minDepth > $depth) {
                 unset($titles[$i]);
@@ -110,7 +110,7 @@ class TOC extends AbstractElement
     /**
      * Get TOC Style
      *
-     * @return \PhpOffice\PhpWord\Style\TOC
+     * @return \Net7\PhpWord\Style\TOC
      */
     public function getStyleTOC()
     {
@@ -120,7 +120,7 @@ class TOC extends AbstractElement
     /**
      * Get Font Style
      *
-     * @return \PhpOffice\PhpWord\Style\Font|string
+     * @return \Net7\PhpWord\Style\Font|string
      */
     public function getStyleFont()
     {

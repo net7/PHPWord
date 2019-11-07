@@ -15,10 +15,10 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
 use PhpOffice\Common\Text as CommonText;
-use PhpOffice\PhpWord\Style;
+use Net7\PhpWord\Style;
 
 /**
  * Title element

@@ -15,12 +15,12 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Net7\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\Microsoft\PasswordEncoder;
-use PhpOffice\PhpWord\ComplexType\ProofState;
-use PhpOffice\PhpWord\ComplexType\TrackChangesView;
-use PhpOffice\PhpWord\Style\Language;
+use Net7\PhpWord\ComplexType\ProofState;
+use Net7\PhpWord\ComplexType\TrackChangesView;
+use Net7\PhpWord\Style\Language;
 
 /**
  * Word2007 settings part writer: word/settings.xml
@@ -99,7 +99,7 @@ class Settings extends AbstractPart
      */
     private function getSettings()
     {
-        /** @var \PhpOffice\PhpWord\Metadata\Settings $documentSettings */
+        /** @var \Net7\PhpWord\Metadata\Settings $documentSettings */
         $documentSettings = $this->getParentWriter()->getPhpWord()->getSettings();
 
         // Default settings
@@ -181,7 +181,7 @@ class Settings extends AbstractPart
     /**
      * Get protection settings.
      *
-     * @param \PhpOffice\PhpWord\Metadata\Protection $documentProtection
+     * @param \Net7\PhpWord\Metadata\Protection $documentProtection
      */
     private function setDocumentProtection($documentProtection)
     {

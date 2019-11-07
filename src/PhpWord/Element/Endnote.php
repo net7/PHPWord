@@ -15,7 +15,7 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Net7\PhpWord\Element;
 
 /**
  * Endnote element
@@ -32,7 +32,7 @@ class Endnote extends Footnote
     /**
      * Create new instance
      *
-     * @param string|array|\PhpOffice\PhpWord\Style\Paragraph $paragraphStyle
+     * @param string|array|\Net7\PhpWord\Style\Paragraph $paragraphStyle
      */
     public function __construct($paragraphStyle = null)
     {
